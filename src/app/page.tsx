@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import PhotoList from '@/components/PhotoList'
 
 export default function Home() {
   return (
@@ -38,7 +39,7 @@ export default function Home() {
           priority
         />
       </div>
-
+    <PhotoList/>
       <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
