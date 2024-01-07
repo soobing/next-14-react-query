@@ -2,7 +2,8 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import PhotoList from '@/components/PhotoList'
 import queryOptions from '@/service/photo/queries';
-import { Hydrate, getDehydratedQuery } from '@/utils/react-query';
+import {Hydrate, getDehydratedQuery} from '@/utils/react-query';
+import Comments from '@/components/Comments';
 
 export default async function Home() {
   const { queryKey, queryFn } = queryOptions.all();
@@ -41,7 +42,10 @@ export default async function Home() {
 
     {/* 서버 사이드 렌더링 & 서버 컴포넌트 */}
     <Hydrate state={{ queries: [query] }}>
+      {/* Client Component */}
       <PhotoList/>
+      {/* Server Component */}
+      <Comments id={1}/>
     </Hydrate>
     </main>
   )

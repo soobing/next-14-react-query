@@ -1,10 +1,10 @@
 import {Photo} from '@/model/photo';
 
-export default function PhotoCard({ photo }: { photo: Photo }) {
+export default function PhotoCard({title, thumbnailUrl}: Photo) {
   return (
     <div>
-      <img src={photo.url} alt={photo.title} />
-      <div>{photo.title}</div>
+      <img src={thumbnailUrl} alt={title} />
+      <div>{title}</div>
     </div>
   )
 }
