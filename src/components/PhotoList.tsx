@@ -1,11 +1,16 @@
-import PhotoService from '@/service/photo/PhotoService';
+'use client'
+import PhotoCard from '@/components/PhotoCard'
+import {usePhotos} from '@/service/photo/usePhotoService';
 
-export default async function PhotoList() {
-  const result = await PhotoService.getPhotos();
-  console.log(result)
+export default function PhotoList() {
+  const { data: photos } = usePhotos();
   return (
     <div>
-      {JSON.stringify(result)}
+      {photos?.map((photo) => {
+        return (
+          <PhotoCard {...photo} key={photo.albumId}></PhotoCard>
+        )
+      })}
     </div>
   )
 }
